@@ -2,11 +2,68 @@ package datastructs
 
 import (
 	"fmt"
+
+	"golang.org/x/exp/constraints"
 )
 
 type LinkedNode[T any] struct {
 	Val  T
 	Next *LinkedNode[T]
+}
+
+func MergeKLists[T constraints.Ordered](lists []*LinkedNode[T]) *LinkedNode[T] {
+	if len(lists) == 0 {
+		return nil
+	}
+
+	if len(lists) == 1 {
+		return lists[0]
+	}
+
+	if len(lists) == 2 {
+		return MergeLists(lists[0], lists[1])
+	}
+
+	middle := len(lists) / 2
+
+	return MergeLists(MergeKLists(lists[:middle]), MergeKLists(lists[middle:]))
+}
+
+// Assumes Sorted
+func MergeLists[T constraints.Ordered](rootOne, rootTwo *LinkedNode[T]) *LinkedNode[T] {
+	result := &LinkedNode[T]{}
+	currentNode := result
+
+	if rootOne == nil && rootTwo == nil {
+		return nil
+	}
+
+	for rootOne != nil || rootTwo != nil {
+		// If we finish one of the slices append whatever is left
+		if rootOne == nil {
+			currentNode.Next = rootTwo.Next
+			currentNode.Val = rootTwo.Val
+			return result
+		}
+
+		if rootTwo == nil {
+			currentNode.Next = rootOne.Next
+			currentNode.Val = rootOne.Val
+			return result
+		}
+
+		// Append the smaller of the numbers
+		if rootOne.Val <= rootTwo.Val {
+			currentNode.Val = rootOne.Val
+			rootOne = rootOne.Next
+		} else if rootOne.Val > rootTwo.Val {
+			currentNode.Val = rootTwo.Val
+			rootTwo = rootTwo.Next
+		}
+		currentNode.Next = &LinkedNode[T]{}
+		currentNode = currentNode.Next
+	}
+	return result
 }
 
 func CreateLinkedList[T any](slice []T) *LinkedNode[T] {
