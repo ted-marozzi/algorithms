@@ -28,21 +28,14 @@ s consists of English letters, digits, symbols and spaces.
 
 func LengthOfLongestSubstring(s string) int {
 	var result int
-	for i := range s {
-		var longestForChar int
-		currentMap := make(map[rune]struct{})
-		for _, charTwo := range s[i:] {
-			if _, ok := currentMap[charTwo]; ok {
-				// This is a repeat letter so break
-				break
-			}
-			currentMap[charTwo] = struct{}{}
-			longestForChar++
+	currentMap := make(map[rune]int)
+	i := 0
+	for j, char := range s {
+		if val, ok := currentMap[char]; ok {
+			i = Max(val, i)
 		}
-		if longestForChar > result {
-			result = longestForChar
-		}
+		result = Max(result, j-i+1)
+		currentMap[char] = j + 1
 	}
-
 	return result
 }
