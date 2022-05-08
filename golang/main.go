@@ -1,6 +1,8 @@
 package main
 
 import (
+	_ "fmt"
+
 	_ "github.com/ted-marozzi/algos-and-datastructs/golang/datastructs"
 	_ "github.com/ted-marozzi/algos-and-datastructs/golang/googlekickstart"
 	_ "github.com/ted-marozzi/algos-and-datastructs/golang/leetcode"
