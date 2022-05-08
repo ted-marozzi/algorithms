@@ -1,7 +1,7 @@
 package leetcode
 
 import (
-	"github.com/ted-marozzi/algorithms/golang/datastructs"
+	"github.com/ted-marozzi/algos-and-datastructs/golang/datastructs"
 	"golang.org/x/exp/constraints"
 )
 

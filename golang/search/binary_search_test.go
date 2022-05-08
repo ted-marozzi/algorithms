@@ -3,7 +3,7 @@ package search
 import (
 	"testing"
 
-	"github.com/ted-marozzi/algorithms/golang/sort"
+	"github.com/ted-marozzi/algos-and-datastructs/golang/sort"
 )
 
 func TestBinarySearchFoundInt(t *testing.T) {

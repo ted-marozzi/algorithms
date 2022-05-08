@@ -1,4 +1,4 @@
-module github.com/ted-marozzi/algorithms/golang
+module github.com/ted-marozzi/algos-and-datastructs/golang
 
 go 1.18
 
