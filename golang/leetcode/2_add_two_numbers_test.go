@@ -3,7 +3,7 @@ package leetcode
 import (
 	"testing"
 
-	"github.com/ted-marozzi/algorithms/v2/datastructs"
+	"github.com/ted-marozzi/algorithms/golang/datastructs"
 )
 
 func TestAddTwoNumbers(t *testing.T) {

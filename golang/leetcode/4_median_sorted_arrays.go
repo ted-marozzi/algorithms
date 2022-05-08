@@ -1,7 +1,7 @@
 package leetcode
 
 import (
-	"github.com/ted-marozzi/algorithms/v2/sort"
+	"github.com/ted-marozzi/algorithms/golang/sort"
 	"golang.org/x/exp/constraints"
 )
 
