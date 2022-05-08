@@ -4,7 +4,18 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++ -c -fmodules-ts -x c++-system-header -std=c++20 iostream string vector && g++ -std=c++20 -fmodules-ts sort/helloworld.cpp main.cpp -o main.out"
+            "command": "g++ -g main.cpp -o main.o"
+        },
+        {
+            "label": "compare",
+            "type": "shell",
+            "command": "diff ./out/ ./exp/"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "truncate -s 0 **/*.txt",
+            "problemMatcher": []
         }
     ]
 }

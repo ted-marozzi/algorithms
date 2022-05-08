@@ -5,12 +5,45 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C++",
+            "name": "Run main",
             "type": "cppdbg",
             "preLaunchTask": "build",
+            "miDebuggerPath": "/usr/bin/gdb",
             "cwd": "${workspaceRoot}",
             "request": "launch",
-            "program": "/workspaces/algorithms-and-datastructs/cpp/main.out",
-        }
+            "program": "${workspaceRoot}/main.o",
+        },
+        {
+            "name": "Test 1",
+            "type": "cppdbg",
+            "preLaunchTask": "build",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "cwd": "${workspaceRoot}",
+            "request": "launch",
+            "program": "${workspaceRoot}/main.o",
+            "args": [
+                "<",
+                "./in/ts1_input.txt",
+                ">",
+                "./out/ts1_output.txt"
+            ],
+            "postDebugTask": "compare"
+        },
+        {
+            "name": "Test 2",
+            "type": "cppdbg",
+            "preLaunchTask": "build",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "cwd": "${workspaceRoot}",
+            "request": "launch",
+            "program": "${workspaceRoot}/main.o",
+            "args": [
+                "<",
+                "./in/ts2_input.txt",
+                ">",
+                "./out/ts2_output.txt"
+            ],
+            "postDebugTask": "compare"
+        },
     ],
 }
